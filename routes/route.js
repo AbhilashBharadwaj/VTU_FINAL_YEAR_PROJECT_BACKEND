@@ -6,9 +6,13 @@ var hash = require('../module/generateHash')
 //now we define our routes and export router so that the main index.js can refer to this for routing
 
 
-router.get('/guest',(req,res)=>{
+router.get('/hash',(req,res)=>{
 
-    res.json({'value':fact.fact(5),'hash':hash.generateHash})
+    res.json({'hash':hash.generateHash()})
+})
+
+router.get('/',(req,res)=>{
+    res.json({'message':'Hello'})
 })
 
 module.exports = router
