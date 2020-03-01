@@ -5,12 +5,19 @@ var route = require('./routes/route')
 var https= require('https')
 var fs = require('fs')
 var app = express()
+const mongoose = require('mongoose')
+const private = require('./routes/private/user_route')
+
+mongoose.connect('mongodb://localhost:27017/darpa_069', {useNewUrlParser: true},()=>{
+console.log("Connected to db")
+})
 
 app.set('port',process.env.PORT || 3000) // this will set the 'port' variable to either environment defined or if not then 3000
 
 //we now define our view engine
 //this is not needed for api based servers
 
+//Middleware
 app.set('views',__dirname + '/views') //this tells the view engine to look under __dirname/views for the template file
 app.set('view engine','ejs') //set the view engine to ejs
 
@@ -22,14 +29,18 @@ app.use(express.static(path.join(__dirname, 'public'))); // configure express to
 //Note app.set() allows us to set variables globally, and we can get the value back using app.get()
 
 app.all('/*',(req,res,next)=>{
-    
+    //we set the CORS headers here
     next() //go to the next layer in the stack
 })
 
-app.use('/',route)
+
+
+//Route Middleware
+app.use('/api',route) // all routes will start with api
+app.use('/api/access',private)
 
 app.use((req,res,next)=>{
-    res.send('Invalid URL')
+    res.json({'message':'error','details':'Invalid URL'})
 })  //this will be called when there is no matching route
 
 const options = {
