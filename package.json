@@ -12,11 +12,19 @@
     "@hapi/joi": "^17.1.0",
     "bcrypt": "^4.0.0",
     "body-parser": "^1.19.0",
+    "crypto": "^1.0.1",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "https": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
+    "keygenerator": "^1.0.4",
+    "license-key-gen": "^0.1.4",
+    "moment": "^2.24.0",
     "mongoose": "^5.9.2",
-    "path": "^0.12.7"
+    "multer": "^1.4.2",
+    "multer-gridfs-storage": "^4.0.2",
+    "object-hash": "^2.0.3",
+    "path": "^0.12.7",
+    "util": "^0.12.2"
   }
 }

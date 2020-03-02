@@ -8,7 +8,8 @@ var app = express()
 const mongoose = require('mongoose')
 const private = require('./routes/private/user_route')
 
-mongoose.connect('mongodb://localhost:27017/darpa_069', {useNewUrlParser: true},()=>{
+
+mongoose.connect('mongodb://localhost:27017/darpa_069', {useNewUrlParser: true,useUnifiedTopology: true},()=>{
 console.log("Connected to db")
 })
 
@@ -23,6 +24,7 @@ app.set('view engine','ejs') //set the view engine to ejs
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); //bodyParser middleware allows us to access request data easily
+
 app.use(express.static(path.join(__dirname, 'public'))); // configure express to use public folder
 
 
@@ -37,7 +39,7 @@ app.all('/*',(req,res,next)=>{
 
 //Route Middleware
 app.use('/api',route) // all routes will start with api
-app.use('/api/access',private)
+app.use('/api/access',private) //all private routes
 
 app.use((req,res,next)=>{
     res.json({'message':'error','details':'Invalid URL'})

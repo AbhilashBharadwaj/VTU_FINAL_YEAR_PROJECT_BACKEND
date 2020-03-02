@@ -7,7 +7,7 @@ module.exports = (req,res,next)=>{
         return res.status(401).send({'message':'error','details':'Access Denied'})
     try{
         const verify = jwt.verify(token,app_config.TOKEN_SECRET)
-        req.user = verify
+        req.user = verify._id
         next()
     }catch(err){
         return res.status(400).send({'message':'error','details':'Invaid Token'})
