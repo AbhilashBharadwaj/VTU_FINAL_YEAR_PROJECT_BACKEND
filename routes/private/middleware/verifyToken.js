@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const app_config = require('../../model/app_config')
+const app_config = require('../../../model/app_config')
 module.exports = (req,res,next)=>{
     
     const token = req.header('auth-token') 

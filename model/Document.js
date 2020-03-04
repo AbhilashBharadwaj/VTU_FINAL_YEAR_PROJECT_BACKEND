@@ -61,6 +61,11 @@ const documentSchema = new mongoose.Schema({
     hash:{
         type:String,
         required:true
+    },
+
+    cover_url : {
+        type:String,
+        default:undefined
     }
 
 

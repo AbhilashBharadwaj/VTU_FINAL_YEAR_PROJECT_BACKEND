@@ -13,12 +13,13 @@ const licenseSchema = new mongoose.Schema({
         required : true
     },
 
-    expiry_date : {
-        type : Date,
-        
-    }
+    expireAt: { type: Date, default: undefined },
+
+    validity : {type:Number,default:undefined},
+
+    redeemer_id : {type:String}
 
 
-});
-
+},{timestamps:true});
+licenseSchema.index({ "expireAt": 1 }, { expireAfterSeconds: 0 })
 module.exports = mongoose.model('License',licenseSchema)

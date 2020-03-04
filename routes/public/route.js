@@ -1,11 +1,11 @@
 var express = require('express')
 var router = express.Router()
-const myPlaintextPassword = require('../model/app_config').password
-const app_config = require('../model/app_config')
+const myPlaintextPassword = require('../../model/app_config').password
+const app_config = require('../../model/app_config')
 const bcrypt = require('bcrypt')
-const User = require('../model/User')
-const valid = require('../model/User_Validation_Schema') //user details validation
-const login_valid = require('../model/login_validate')
+const User = require('../../model/User')
+const valid = require('../../model/User_Validation_Schema') //user details validation
+const login_valid = require('../../model/login_validate')
 const jwt = require('jsonwebtoken')
 //now we define our routes and export router so that the main index.js can refer to this for routing
 router.all('*/',(req,res,next)=>{
