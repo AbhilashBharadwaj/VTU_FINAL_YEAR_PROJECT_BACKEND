@@ -45,9 +45,5 @@ module.exports = {'password':password,'SALT_ROUNDS':SALT_ROUNDS,'TOKEN_SECRET':T
     └── server.key                # The key used to verify the SSL certificate
     
    
-> This is a backup 
-
-> Backup Date : 05/03/2020
-
-> Backup Time : 11:41 PM
+> Backup Date : 05/03/2020 Backup Time : 11:41 PM
 
