@@ -2,6 +2,7 @@ const password = 'N*-R7k+stNAUQ%Ks3?LY3K$5V+te@xkEra&RawDeu@aW#yW*CVuC@t3S*E8@%g
 const SALT_ROUNDS = 10;
 const TOKEN_SECRET = "kjdfnajsdfksjnfijq3fjnasdmdvoawnefonqwrfjmlksdmdfoiniawnf";
 const DB = "mongodb://localhost:27017/darpa_069"
+const DB_ATLAS = "mongodb+srv://mongo_db_cluster:ligmaballzs123@cluster0-1zovt.mongodb.net/darpa_069?retryWrites=true&w=majority"
 const ALLOWED_DOCUMENTS = ['pdf','docx']
 const ALLOWED_IMAGES = ['jpg','jpeg','png','bmp']
 //2048 bit password
