@@ -1,6 +1,7 @@
 const documents = require('./../model/Document')
 const license = require('../model/License')
 module.exports = async(req,res,next)=>{
+    console.log(req.user)
    const redeemer_id = await license.find({'redeemer_id':req.user}) //we dont need to verify if req.user exists because it is already taken care of in middlewareTokens
     if(!redeemer_id)
         return res.send({'message':'success','details':'No documents available'}) //no result

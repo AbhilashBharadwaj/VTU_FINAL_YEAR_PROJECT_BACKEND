@@ -7,9 +7,10 @@ var fs = require('fs')
 var app = express()
 const mongoose = require('mongoose')
 const private = require('./routes/private/user_route')
+const config = require('./model/app_config')
 
 
-mongoose.connect('mongodb://localhost:27017/darpa_069', {useNewUrlParser: true,useUnifiedTopology: true},()=>{
+mongoose.connect(config.DB, {useNewUrlParser: true,useUnifiedTopology: true},()=>{
 console.log("Connected to db")
 })
 

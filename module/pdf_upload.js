@@ -1,8 +1,9 @@
 const multer = require('multer')
 const keygen = require("keygenerator");
+const config = require('../model/app_config')
 const storage = multer.diskStorage({
     destination : function(req,file,callback){
-        var path = file.mimetype.split("/")[1]=="pdf"?'./uploads/document_store/':'./uploads/document_store/cover'
+        var path = config.ALLOWED_DOCUMENTS.includes(file.mimetype.split("/")[1])?'./uploads/document_store/':'./uploads/document_store/cover'
         callback(null,path);
     },
     filename: function(req,file,callback){
@@ -19,14 +20,14 @@ const upload = multer({ storage : storage,fileFilter:(req,file,cb)=>{
     if(file.fieldname=='document')
     {
         
-        if((['pdf'].includes(file.mimetype.split("/")[1]))==false)
-            return cb(new Error('Only pdf file is allowed in this field'))
+        if((config.ALLOWED_DOCUMENTS.includes(file.mimetype.split("/")[1]))==false)
+            return cb(new Error('Only valid documents allowed in this field'))
         else
             cb(null,true)
     }
 
     else if(file.fieldname=='cover'){
-        if(['jpeg','jpg','png','gif','bmp'].includes((file.mimetype.split("/")[1]))==false)
+        if(config.ALLOWED_IMAGES.includes((file.mimetype.split("/")[1]))==false)
             return cb(new Error('Only image file is allowed in this field'))
         else
             cb(null,true)
