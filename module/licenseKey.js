@@ -47,7 +47,7 @@ module.exports.newDocument = async (req,res,next)=>{
             zip : req.body.zip,
             author : req.body.author,
             file_url : req.files['document'][0].path,
-            owner : req.body.owner,
+            owner : req.user,
             file_name : req.body.file_name,
             hash:hash_value,
             cover_url : cover_check()
@@ -61,13 +61,15 @@ module.exports.newDocument = async (req,res,next)=>{
             zip : req.body.zip,
             author : req.body.author,
             file_url : req.files['document'][0].path,
-            owner : req.body.owner,
+            owner : req.user,
             file_name : req.body.file_name,
             hash:hash_value
         })
         
         if(error)
+        {   //delete uploaded documents
             return res.status(400).send({'message':'error','details':error.details[0].message})
+        }
 
         var date = undefined
         if('expiry' in req.body)
