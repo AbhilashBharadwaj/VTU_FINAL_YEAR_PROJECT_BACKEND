@@ -8,6 +8,10 @@ const valid = require('../../model/User_Validation_Schema') //user details valid
 const login_valid = require('../../model/login_validate')
 const jwt = require('jsonwebtoken')
 //now we define our routes and export router so that the main index.js can refer to this for routing
+
+
+
+
 router.all('*/',(req,res,next)=>{
     
     if(req.header('validation')){
@@ -30,6 +34,8 @@ router.all('*/',(req,res,next)=>{
 router.post('/',(req,res)=>{
     res.json({'message':'success'})
 })
+
+
 
 router.post('/register', async(req,res)=>{
 
