@@ -6,6 +6,6 @@ const DB_ATLAS = "mongodb+srv://mongo_db_cluster:ligmaballzs123@cluster0-1zovt.m
 const ALLOWED_DOCUMENTS = ['pdf','docx']
 const ALLOWED_IMAGES = ['jpg','jpeg','png','bmp']
 //2048 bit password
-module.exports = {'password':password,'SALT_ROUNDS':SALT_ROUNDS,'TOKEN_SECRET':TOKEN_SECRET,'DB':DB,'ALLOWED_DOCUMENTS':ALLOWED_DOCUMENTS,'ALLOWED_IMAGES':ALLOWED_IMAGES}
+module.exports = {'password':password,'SALT_ROUNDS':SALT_ROUNDS,'TOKEN_SECRET':TOKEN_SECRET,'DB':DB,'DB_ATLAS':DB_ATLAS,'ALLOWED_DOCUMENTS':ALLOWED_DOCUMENTS,'ALLOWED_IMAGES':ALLOWED_IMAGES}
 
 

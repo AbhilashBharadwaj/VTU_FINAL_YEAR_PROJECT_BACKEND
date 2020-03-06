@@ -10,7 +10,7 @@ const private = require('./routes/private/user_route')
 const config = require('./model/app_config')
 
 
-mongoose.connect(config.DB, {useNewUrlParser: true,useUnifiedTopology: true},()=>{
+mongoose.connect(config.DB_ATLAS, {useNewUrlParser: true,useUnifiedTopology: true},()=>{
 console.log("Connected to db")
 })
 
