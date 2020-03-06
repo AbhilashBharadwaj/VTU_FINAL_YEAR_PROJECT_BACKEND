@@ -1,3 +1,5 @@
 node_modules
 npm-debug.log
-
+!uploads/.gitkeep 
+!uploads/document_store/.gitkeep 
+!uploads/document_store/cover/.gitkeep 
