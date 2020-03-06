@@ -2,7 +2,7 @@ var express = require('express')
 var bodyParser = require('body-parser')
 const path = require('path');
 var route = require('./routes/public/route')
-var https= require('https')
+
 var fs = require('fs')
 var app = express()
 const mongoose = require('mongoose')
@@ -46,16 +46,12 @@ app.use((req,res,next)=>{
     res.json({'message':'error','details':'Invalid URL'})
 })  //this will be called when there is no matching route
 
-const options = {
-    key : fs.readFileSync('server.key'),
-    cert : fs.readFileSync('server.cert')
-} //we will be self signing for testing purpose. In production server we will use CA
+
+app.listen(app.get('port'),()=>{
+    console.log(`Server running in port ${app.get('port')}`)
+})
 
 
-
-https.createServer(options,app).listen(app.get('port'),()=>{
-      console.log(`Server running in port ${app.get('port')}`)
-  });
 
 
 
