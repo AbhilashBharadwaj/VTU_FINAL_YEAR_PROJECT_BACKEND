@@ -84,7 +84,7 @@ module.exports.newDocument = async (req,res,next)=>{
                 return res.send("Enter expiry in seconds without \" \"")
             }
 
-        
+        console.log("Date is "+date)
         const operation = await new_doc.save()
         const list_of_keys = new Array()
         if(operation){

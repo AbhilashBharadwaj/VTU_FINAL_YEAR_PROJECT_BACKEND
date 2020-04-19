@@ -6,12 +6,11 @@ const licenseKeyFramework = require('../../module/licenseKey')
 const upload = require('../../module/pdf_upload')
 const licenseRedeem = require('./../../module/licenseRedeem')
 const getAllDocuments = require('../../module/getAllDocuments')
-
-
-router.get('/download',middlewareToken,middlewareRoles,(req,res)=>{
-    
-
-    
+const canDownload = require('../../module/canDownload')
+const getOwnedDocuments = require('../../module/getOwnedDocuments')
+const getAllKeys = require('../../module/getAllKeys')
+router.get('/download',middlewareToken,middlewareRoles,canDownload,(req,res)=>{
+    res.download(req.path())
 })
 
 router.post('/newDocument',middlewareToken,middlewareRoles,upload.fields([{name:'document',maxCount:1},{name:'cover',maxCount:1}]),licenseKeyFramework.newDocument,(req,res)=>{
@@ -30,8 +29,20 @@ router.get('/redeemLicenseKey',middlewareToken,middlewareRoles,licenseRedeem)
 
 }
 
-router.get('/getAllDocuments',middlewareToken,middlewareRoles,getAllDocuments,getAllDocuments,(req,res,next)=>{
+router.get('/getAllDocuments',middlewareToken,middlewareRoles,getAllDocuments,(req,res,next)=>{
 
 })
 
+router.get('/getOwnedDocuments',middlewareToken,middlewareRoles,getOwnedDocuments,(req,res,next)=>{
+
+})
+
+router.get('/getAllKeys',middlewareToken,middlewareRoles,getAllKeys,(req,res,next)=>{
+
+})
+
+
+//add two more routes
+//1 to show all documents owned by an owner
+//2 to get all keys owned by an owner
 module.exports = router;

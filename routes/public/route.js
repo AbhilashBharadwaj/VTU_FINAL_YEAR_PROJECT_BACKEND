@@ -34,6 +34,7 @@ router.post('/',(req,res)=>{
 router.post('/register', async(req,res)=>{
 
     //client side validation errors
+    
      const {error} = valid(req);
      if(error)
         return res.status(400).send({'message':'error','details':error.details[0].message})
