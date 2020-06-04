@@ -20,7 +20,7 @@ module.exports = async (req,res,next)=>{
 
    // req.body.path = path.file_url // this doesnt work
     
-    res.download(path.file_url)
-    next()
+    res.download(path.cover_url)
+    next()    
 
 }
