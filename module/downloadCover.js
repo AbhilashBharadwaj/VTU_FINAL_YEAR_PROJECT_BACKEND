@@ -6,12 +6,13 @@ module.exports = async (req,res,next)=>{
     if(!('document_id' in req.body))
         return res.send({'message':'error','details':'Please specify document_id'})
 
-    const result = await license.findOne({'document_id':req.body.document_id})
+    // const result = await license.find({'document_id':req.body.document_id})
+    const result = await license.findOne({'document_id':req.body.document_id,'redeemer_id':req.user})
+
     if(!result)
         return res.send({'message':'error','details':'No such document exists'})
+        console.log("Redeemer id is "+req.user)
 
-    if(result.redeemer_id!=req.user)
-        return res.send({'message':'error','details':'You don\'t have access to this document'})
 
     const path = await document.findOne({'_id':req.body.document_id})
 
@@ -21,6 +22,8 @@ module.exports = async (req,res,next)=>{
    // req.body.path = path.file_url // this doesnt work
     
     res.download(path.cover_url)
-    next()    
+    next()
+
+
 
 }
