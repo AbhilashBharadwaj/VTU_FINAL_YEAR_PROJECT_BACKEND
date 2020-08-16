@@ -1,31 +1,44 @@
 {
-  "name": "real",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
-  },
-  "author": "",
-  "license": "ISC",
+  "name": "drm",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "@hapi/joi": "^17.1.0",
-    "bcrypt": "^4.0.0",
-    "body-parser": "^1.19.0",
-    "crypto": "^1.0.1",
-    "express": "^4.17.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "FormData": "^0.10.1",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
     "fs": "0.0.1-security",
     "https": "^1.0.0",
-    "jsonwebtoken": "^8.5.1",
-    "keygenerator": "^1.0.4",
-    "license-key-gen": "^0.1.4",
-    "moment": "^2.24.0",
-    "mongoose": "^5.9.2",
-    "multer": "^1.4.2",
-    "multer-gridfs-storage": "^4.0.2",
-    "object-hash": "^2.0.3",
-    "path": "^0.12.7",
-    "util": "^0.12.2"
+    "pdf-viewer-reactjs": "^2.0.7",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
+    "react-dom": "^16.13.1",
+    "react-read-pdf": "^2.0.9",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
