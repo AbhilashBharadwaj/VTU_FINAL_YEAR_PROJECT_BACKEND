@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const license = require('../model/License')
 const document = require('../model/Document')
+const fs = require('fs')
 module.exports = async (req,res,next)=>{
     //check if there is a dcoument_id in the req body
     if(!('document_id' in req.body))
@@ -21,7 +22,12 @@ module.exports = async (req,res,next)=>{
 
    // req.body.path = path.file_url // this doesnt work
     
-    res.download(path.file_url)
+   let buff = fs.readFileSync(path.file_url)
+  let base64 = buff.toString('base64')
+  res.set('Content-Type', 'text/html')
+  res.send(Buffer.from(base64))
+ //console.log(base64)
+   // res.download(path.file_url)
     next()
 
 

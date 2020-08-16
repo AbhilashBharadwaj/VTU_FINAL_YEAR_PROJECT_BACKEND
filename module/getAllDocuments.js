@@ -11,7 +11,7 @@ module.exports = async(req,res,next)=>{
         list_of_documents.push({
             'author' : result.author,
             'company': result.company,
-            'file_name' : result.file_name,
+            'filename' : result.file_name,
             'cover_url' : result.cover_url,
             'document_id': result._id
         })

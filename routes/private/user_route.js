@@ -10,12 +10,12 @@ const canDownload = require('../../module/canDownload')
 const getOwnedDocuments = require('../../module/getOwnedDocuments')
 const getAllKeys = require('../../module/getAllKeys')
 const downloadImage = require('../../module/downloadCover')
-router.get('/download',middlewareToken,middlewareRoles,canDownload,(req,res)=>{
+router.post('/download',middlewareToken,middlewareRoles,canDownload,(req,res)=>{
     //res.download(req.path())
     return
 })
 
-router.get('/downloadImage',middlewareToken,middlewareRoles,downloadImage,(req,res)=>{
+router.post('/downloadImage',middlewareToken,middlewareRoles,downloadImage,(req,res)=>{
     //res.download(req.path())
     return
 })
@@ -27,12 +27,12 @@ router.post('/newDocument',middlewareToken,middlewareRoles,upload.fields([{name:
         
 })
 
-router.get('/generateLicenseKeys',middlewareToken,middlewareRoles,licenseKeyFramework.existingDocument,(req,res)=>{
+router.post('/generateLicenseKeys',middlewareToken,middlewareRoles,licenseKeyFramework.existingDocument,(req,res)=>{
     //the only parameter required is document_id and keys
     
 })
 
-router.get('/redeemLicenseKey',middlewareToken,middlewareRoles,licenseRedeem)
+router.post('/redeemLicenseKey',middlewareToken,middlewareRoles,licenseRedeem)
 {
     //all we need in this route is the key
 }
