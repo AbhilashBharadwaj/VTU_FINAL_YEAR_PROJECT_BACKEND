@@ -17,7 +17,9 @@ const licenseSchema = new mongoose.Schema({
 
     validity : {type:Number,default:undefined},
 
-    redeemer_id : {type:String}
+    redeemer_id : {type:String},
+
+    redeemer_name : {type:String}
 
 
 },{timestamps:true});

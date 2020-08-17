@@ -5,7 +5,10 @@ module.exports = async (req,res,next)=>{
     //first get all documents owned
     //from that get the keys associated with it
 
+    //extra get owner email from key redeemed status
     const doc_list = await documents.find({owner:req.user})
+
+    
     let doc_id_list = []
     if(!doc_list)
         return res.status(400).send({'message':'error','details':'You do not own any documents'})
@@ -18,6 +21,7 @@ module.exports = async (req,res,next)=>{
     let count = 0
     doc_id_list.forEach((key)=>{
         license.find({'document_id':key}).then((val)=>{
+            console.log(val)
            appendKeys(val)
         })
     })

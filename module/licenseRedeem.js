@@ -1,4 +1,5 @@
 const license = require('../model/License')
+const userlink = require('../model/User')
 const moment = require('moment')
 module.exports = async (req,res,next)=>{
     const key = req.body.key
@@ -7,8 +8,11 @@ module.exports = async (req,res,next)=>{
         //ensure if license is not redeemed by checking if redeemer id is not empty
         //check for validity before doing the below line
         console.log("User ID "+req.user)
+        const name = await userlink.findById(req.user)
+        
         const expiry = lick.validity!=undefined?moment().add(lick.validity,'seconds').toDate():undefined
-        await license.findOneAndUpdate({'key':key},{'expireAt':expiry,'redeemer_id':req.user})
+
+        await license.findOneAndUpdate({'key':key},{'expireAt':expiry,'redeemer_id':req.user,'redeemer_name':name.name,'redeemer_email':name.email})
         return res.send({'message':'success','details':lick.document_id})
     }
     else{
