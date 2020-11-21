@@ -1,0 +1,68 @@
+{
+  "name": "drm",
+  "version": "0.1.0",
+  "main": "public/electron.js",
+  "homepage": "",
+  "dependencies": {
+    "@popperjs/core": "^2.4.4",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "FormData": "^0.10.1",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
+    "bulma-helpers": "^0.3.12",
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.2",
+    "electron": "^9.2.0",
+    "electron-is-dev": "^1.2.0",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
+    "jquery": "^1.9.1",
+    "material-icons": "^0.3.1",
+    "pdf-viewer-reactjs": "^2.0.7",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
+    "react-dom": "^16.13.1",
+    "react-read-pdf": "^2.0.9",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.1.1",
+    "wait-on": "^5.2.0"
+  },
+  "scripts": {
+    "start-react": "react-scripts start",
+    "build-react": "react-scripts build",
+    "test-react": "react-scripts test --env=jsdom",
+    "eject-react": "react-scripts eject",
+    "build-electron": "electron-builder",
+    "build": "yarn build-react && yarn build-electron",
+    "start": "concurrently \"cross-env BROWSER=none yarn start-react\" \"wait-on http://localhost:3000 && electron .\"",
+    "start-electron": "electron ."
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "build": {
+    "appId": "com.example.electron-cra",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  }
+}
